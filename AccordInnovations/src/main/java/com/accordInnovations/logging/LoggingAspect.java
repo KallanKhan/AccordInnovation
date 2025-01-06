@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-	@Pointcut("within(com.example.controller..*)")
+	@Pointcut("within(com.accordInnovations.controller..*)")
 	public void controllerMethods() {
 	}
 
