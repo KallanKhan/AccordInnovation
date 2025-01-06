@@ -2,26 +2,24 @@ package com.accordInnovations.service;
 
 
 import java.util.Optional;
-import java.util.logging.LogManager;
 
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.accordInnovations.controller.EmployeeController;
-import com.accordInnovations.entity.Department;
 import com.accordInnovations.entity.Employee;
 import com.accordInnovations.repository.EmployeeRepository;
 
 // employee service class
 @Service
+@Scope("singleton")
 public class EmployeeService {
 
-
+    private Integer counter=0;
 	@Autowired
 	RestTemplate restTemplate;
 
@@ -29,9 +27,12 @@ public class EmployeeService {
 	private EmployeeRepository employeeRepository;
 
 // fetching all employees with pagination
-	public Page<Employee> getAllEmployees(int page, int size) {
-		Pageable pageable = PageRequest.of(page, size);
-		return employeeRepository.findAll(pageable);
+	public Page<Employee> getAllEmployees(Pageable pageable) {
+		counter =0;
+		counter++;
+		System.out.println("counter  ===="+counter);
+		Pageable pageables = PageRequest.of(0, 10);
+		return employeeRepository.findAll(pageables);
 	}
 
 	
@@ -74,9 +75,11 @@ public class EmployeeService {
 		}
 	}
 
+	
 	public String callGoogle() {
-		
+	
 		return restTemplate.getForObject("https://www.google.com", String.class);
+		
 	}
 
 

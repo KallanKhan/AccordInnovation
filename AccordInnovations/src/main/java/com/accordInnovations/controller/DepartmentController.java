@@ -31,8 +31,15 @@ public class DepartmentController {
 	
 	static final Logger logger  = LogManager.getLogger(DepartmentController.class.getName());
 
-	@Autowired
+	
 	private DepartmentService departmentService;
+	
+	
+	@Autowired
+	public DepartmentController(DepartmentService departmentService) {
+		super();
+		this.departmentService = departmentService;
+	}
 
 	// displaying list of all department
 	@GetMapping("/departments")

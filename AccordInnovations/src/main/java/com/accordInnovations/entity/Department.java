@@ -19,7 +19,7 @@ public class Department {
 
 	@Id
 	@Column(name="department_id")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int department_ID;
 	private String short_Name;
 	private String department_Name;

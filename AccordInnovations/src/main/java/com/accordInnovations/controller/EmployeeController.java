@@ -46,7 +46,7 @@ public class EmployeeController {
 	
 	@GetMapping("/employees")
 	public ResponseEntity<List<Employee>> getAllEmployees(Pageable pageable) {
-	    Page<Employee> employeePage = employeeService.findAll(pageable);
+	    Page<Employee> employeePage = employeeService.getAllEmployees(pageable);
 	    List<Employee> employees = employeePage.getContent(); // Extract the list of employees
 	    return ResponseEntity.ok(employees);
 	}
