@@ -44,7 +44,7 @@ public class DepartmentController {
 	// displaying list of all department
 	@GetMapping("/departments")
 	public ResponseEntity<Page<Department>> getAllDepartments(Pageable pageable) {
-        // Paginated response
+        System.out.println("pageable");
         Page<Department> departmentPage = departmentService.findAll(pageable);
         return ResponseEntity.ok(departmentPage);
     }
