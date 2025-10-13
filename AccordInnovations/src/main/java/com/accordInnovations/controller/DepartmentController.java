@@ -47,6 +47,8 @@ public class DepartmentController {
         System.out.println("pageable");
 		System.out.println("pageable");
         System.out.println("getAllDepartments");
+
+		System.out.println("getAllDepartments");
 		Page<Department> departmentPage = departmentService.findAll(pageable);
         return ResponseEntity.ok(departmentPage);
     }
